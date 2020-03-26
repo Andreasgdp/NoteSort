@@ -1,0 +1,36 @@
+{% extends "header.html" %} {% block content %}
+<a href="/showclass?='{{ class_info['class_id'] }}'" class="btn btn-light back-btn" type="button"
+	>Go back</a
+>
+<div class="container">
+	<h1 class="class-heading">{{ class_info['class_name'] }}</h1>
+	<div class="row h-100">
+		<div class="col-sm-12 my-auto">
+			<div class="card card-block w-100">
+				<h1>{{ note_info['subject'] }}</h1>
+				<div class="scrollbar scrollbar-primary pre-scrollable">
+					{{ note_info['body'] }}
+				</div>
+			</div>
+			<br />
+			<a
+				name=""
+				id=""
+				class="btn btn-primary"
+				href="/edit_note?='{{ note_info }}'"
+				role="button"
+				>Edit</a
+			>
+			<a
+				name=""
+				id=""
+				class="btn btn-danger"
+				href="/remove_note?='{{ note_info }}'"
+				role="button"
+				>Trash</a
+			>
+		</div>
+	</div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends "header.html" %} {% block content %}
+
+<div class="bg img-fluid"></div>
+
+<div class="container">
+	<a
+		href="/take_notes"
+		type="button"
+		class="btn btn-primary btn-lg btn-block center "
+		style="width:50%; margin-top:1.5rem"
+	>
+		New note
+	</a>
+	<div class="card-deck" style="margin-top:1.5rem">
+		{% for class_info in classes_info %}
+		<a
+			href="/showclass?='{{ class_info['class_id'] }}'"
+			class="card class-card"
+		>
+			<img
+				class="card-img-top"
+				src="{{ class_info['class_img'] }}"
+				alt="Card image cap"
+			/>
+			<div class="card-body">
+				<h5 class="card-title">{{ class_info['class_name'] }}</h5>
+				<div style="height: 60px">
+					<p
+						class="card-text"
+						style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"
+					>
+						{{ class_info['description'] }}
+					</p>
+				</div>
+				<div class="card">
+					<div class="container" style="text-align: center;">
+						<h5>
+							Number of notes: <br /><span
+								class="badge badge-secondary"
+								>{{ class_info['num_notes'] }}</span
+							>
+						</h5>
+					</div>
+				</div>
+			</div>
+		</a>
+		{% endfor %}
+	</div>
+</div>
+
+{% endblock content %}

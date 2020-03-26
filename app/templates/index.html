@@ -1,0 +1,43 @@
+{% extends "header.html" %} {% block content %}
+<div class="center">
+	<div class="container log-in-container">
+		<!-- Default form login -->
+		<!-- https://mdbootstrap.com/docs/jquery/forms/basic/ -->
+		<form
+			class="text-center border border-light p-5"
+			action="login_profile"
+			method="POST"
+		>
+			<p class="h4 mb-4">Sign in</p>
+
+			<!-- Username -->
+			<input
+				type="username"
+				id="defaultLoginFormEmail"
+				class="form-control mb-4"
+				placeholder="Username"
+				name="username"
+			/>
+
+			<!-- Password -->
+			<input
+				type="password"
+				id="defaultLoginFormPassword"
+				class="form-control mb-2"
+				placeholder="Password"
+				name="password"
+			/>
+
+			<!-- Sign in button -->
+			<button type="submit" class="btn btn-primary m-3">Sign in</button>
+
+			<!-- Register -->
+			<p>
+				Not a member?
+				<a href="/signup">Register</a>
+			</p>
+		</form>
+		<!-- Default form login -->
+		{% endblock content %}
+	</div>
+</div>
