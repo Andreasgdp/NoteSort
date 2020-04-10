@@ -190,6 +190,9 @@ def submit_note():
     body = request.form["body"]
     class_name = request.form["class_name"]
     class_id = data.get_class_id_from_name(class_name)
+    body_for_model = class_model.prepare_model_data(body, class_id)
+    class_model.add_data(body_for_model)
+    class_model.refresh_model()
     data.submit_note(session["currentuser"], class_id, subject, body)
 
     return redirect("/profile")

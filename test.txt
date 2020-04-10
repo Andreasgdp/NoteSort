@@ -1,0 +1,3 @@
+Jeg vil starte med at finde den afstand som punktet A har til planen Til det bruger jeg distanceformlen mellem et punkt og en plan.	3
+Hvis afstanden var 0, så ville punktet ligge på planen.	3
+hello	1

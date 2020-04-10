@@ -15,9 +15,11 @@ ABS_FILEPATH = os.path.dirname(os.path.abspath(__file__))
 
 class TextClassifierModel:
     def __init__(self):
+        self.model_file = fr"{ABS_FILEPATH}\data\classes\combined_test.txt"
         self.filepath_dict = {
             "yelp": fr"{ABS_FILEPATH}\data\sentiment_analysis\yelp_labelled.txt",
-            "combined": fr"{ABS_FILEPATH}\data\classes\combined_test.txt",
+            # "combined": fr"{ABS_FILEPATH}\data\classes\combined.txt",
+            "combined": self.model_file,
         }
         self.create_dataframe()
         self.create_model()
@@ -53,9 +55,25 @@ class TextClassifierModel:
         self.classifier = LogisticRegression()
         self.classifier.fit(self.X_train, self.y_train)
 
+    def add_data(self, data):
+        with open(self.model_file, "ab") as f:
+            f.write(data)
+
+    def refresh_model(self):
+        self.create_dataframe()
+        self.create_model()
+
     def print_score(self):
         score = self.classifier.score(self.X_test, self.y_test)
         print("Accuracy:", score)
+
+    def prepare_model_data(self, body, class_id):
+        body_for_model = body.replace("\t", "    ")
+        body_for_model = str.join(" ", body_for_model.splitlines())
+        body_for_model = body_for_model + "\t" + str(class_id)
+        body_for_model = "\n" + body_for_model
+        body_for_model = body_for_model.encode("UTF-8")
+        return body_for_model
 
     def prepare_data(self, data):
         data = [data]
@@ -74,4 +92,4 @@ if __name__ == "__main__":
     test_data = str(input("Give me some text!: "))
     model.prepare_data(test_data)
     prediction = model.predict_class()
-    print(f'Prediction: {prediction=}')
+    print(f"Prediction: {prediction=}")
