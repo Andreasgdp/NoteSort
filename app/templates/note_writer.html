@@ -44,13 +44,18 @@
 					url: '/get_class_prediction?=' + body,
 					cache: false,
 					type: 'GET',
-					success: function(data) {
+					success: function (data) {
 						console.log('shit works!' + data);
 						let class_name = data['class_name'];
 						let wrong_class_name1 = data['other_classes1'];
 						let wrong_class_name2 = data['other_classes2'];
+						let prediction_score = data['prediction_score'];
 						$('#correct-class').empty();
 						$('#correct-class').text(class_name);
+						$('#accuracy').empty();
+						$('#accuracy').text(
+							`${prediction_score} Accurate guess`
+						);
 
 						$('#wrong-class-name1').empty();
 						$('#wrong-class-name1').text(wrong_class_name1);
@@ -72,7 +77,7 @@
 						);
 						class_name_hidden.value = class_name;
 					},
-					error: function(err) {}
+					error: function (err) {},
 				});
 			}
 		</script>
@@ -109,6 +114,9 @@
 						>
 							Dansk
 						</div>
+						<h4 id="accuracy" style="margin-top: 1rem;">
+							0% Accurate
+						</h4>
 						<!-- !---------------------------------------------------- -->
 						<input
 							type="hidden"
@@ -169,7 +177,7 @@
 								let wcn = document.getElementById(
 									'wrong-class-name2-inp'
 								).value;
-								console.log(wcn)
+								console.log(wcn);
 
 								let class_name_hidden = document.getElementById(
 									'correct-class-hidden'
@@ -185,7 +193,7 @@
 					</div>
 					<div
 						class="modal-footer"
-						style="display:none;"
+						style="display: none;"
 						id="dropdownFooter"
 					>
 						<div class="dropdown">

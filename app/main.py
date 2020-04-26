@@ -174,12 +174,14 @@ def get_class_prediction():
     body = cluttered_dict[""].replace("'", '"')
     class_model.prepare_data(body)
     prediction = class_model.predict_class()
+    prediction_score = class_model.get_score()
     class_name = data.get_class_name(prediction)
     other_classes = data.get_other_class_names(class_name)
     class_names = {
         "class_name": class_name,
         "other_classes1": other_classes[0],
         "other_classes2": other_classes[1],
+        "prediction_score": prediction_score
     }
     return class_names
 

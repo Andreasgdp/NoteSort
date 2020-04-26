@@ -1,2 +1,3 @@
-with open('test.txt', 'a') as f:
-	f.write('\n' + 'hello	1')
+testlist = [1, 2, 3]
+for i, test in enumerate(testlist):
+	print(i)

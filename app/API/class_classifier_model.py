@@ -67,6 +67,11 @@ class TextClassifierModel:
         score = self.classifier.score(self.X_test, self.y_test)
         print("Accuracy:", score)
 
+    def get_score(self):
+        score = self.classifier.score(self.X_test, self.y_test)
+        score_precent = "{0:.2f}%".format(score * 100)
+        return score_precent
+
     def prepare_model_data(self, body, class_id):
         body_for_model = body.replace("\t", "    ")
         body_for_model = str.join(" ", body_for_model.splitlines())
