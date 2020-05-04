@@ -2,7 +2,6 @@ from note_data import Database, User
 from API.class_classifier_model import TextClassifierModel
 
 from flask import Flask, request, g, render_template, session, redirect, url_for
-from ast import literal_eval
 import os, random, string, json
 
 app = Flask(__name__)
@@ -180,7 +179,7 @@ def get_class_prediction():
         "class_name": class_name,
         "other_classes1": other_classes[0],
         "other_classes2": other_classes[1],
-        "prediction_score": prediction_score
+        "prediction_score": prediction_score,
     }
     return class_names
 

@@ -123,7 +123,9 @@ class Database:
         other_classes = []
         db = self._get_db()
         c = db.cursor()
-        c.execute("SELECT classname FROM classes WHERE NOT classname = ?", (class_name,))
+        c.execute(
+            "SELECT classname FROM classes WHERE NOT classname = ?", (class_name,)
+        )
         r = c.fetchall()
         for class_name in r:
             other_classes.append(class_name)
@@ -324,7 +326,10 @@ class Database:
                 """
                 INSERT INTO userprofiles (username, email, password, fullname)
                 SELECT "user", "andreasgdp@gmail.com", ?, "Andreas;Petersen"
-                WHERE NOT EXISTS (SELECT 1 FROM userprofiles WHERE username = "user" AND email = "andreasgdp@gmail.com" AND fullname = "Andreas;Petersen");
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM userprofiles WHERE username = "user" AND 
+                    email = "andreasgdp@gmail.com" AND 
+                    fullname = "Andreas;Petersen");
                 """,
                 (pass1,),
             )
@@ -332,7 +337,10 @@ class Database:
                 """
                 INSERT INTO userprofiles (username, email, password, fullname) 
                 SELECT "user2", "mand@gmail.com", ?, "Mande;Manden"
-                WHERE NOT EXISTS (SELECT 1 FROM userprofiles WHERE username = "teacher" AND email = "mand@gmail.com" AND fullname = "Mande;Manden");
+                WHERE NOT EXISTS (
+                    SELECT 1 FROM userprofiles WHERE username = "teacher" AND 
+                    email = "mand@gmail.com" AND 
+                    fullname = "Mande;Manden");
                 """,
                 (pass1,),
             )
@@ -343,17 +351,25 @@ class Database:
         try:
             c.execute(
                 """
-                INSERT INTO classes (classname, img_path, class_description) VALUES ("Byggeri & Energi", "./static/Images/byggeri & energi.jpg", "Det er Byg og Hyg");
+                INSERT INTO classes (classname, img_path, class_description) VALUES (
+                    "Byggeri & Energi", 
+                    "./static/Images/byggeri & energi.jpg", 
+                    "Det er Byg og Hyg");
                 """
             )
             c.execute(
                 """
-                INSERT INTO classes (classname, img_path, class_description) VALUES ("Dansk", "./static/Images/dansk.png", "Det er dansk");
+                INSERT INTO classes (classname, img_path, class_description) VALUES (
+                    "Dansk", 
+                    "./static/Images/dansk.png", 
+                    "Det er dansk");
                 """
             )
             c.execute(
                 """
-                INSERT INTO classes (classname, img_path, class_description) VALUES ("Matematik", "./static/Images/matematik.jpg", "Det er mat");
+                INSERT INTO classes (classname, img_path, class_description) VALUES ("Matematik", 
+                "./static/Images/matematik.jpg", 
+                "Det er mat");
                 """
             )
         except Exception as e:
@@ -368,7 +384,7 @@ class Database:
                     1, 
                     2, 
                     "Romantikken", 
-                    "Romantikkens afgørende dyder er Intuition(For at der rent faktisk er nogen, der går i gang med at finde ud af, hvordan det hele hænger sammen.) og Fantasi (For at kunne tænke ud af boksen og ud over den livskultur, som tidligere var.) Med “det væsentlige er usynligt for øjet” menes der, at man er nødt til at tænke på en anden måde for at kunne finde frem til det væsentlige, hvilket man altså ikke bare kan se med øjet. Det er en åndelig ting, man ikke kan se. Man kan opnå den romantiske universaloplevelse når de skriver/finder på tekster (Den oplevelse, når de sidder og finder på (digter eller andet) og får oplevelsen at være et med alt, i det man skriver). Det er ikke en nødvendighed, at digterne opnår denne universaloplevelse. Romantikken forholder sig også til organismetanken: “En organisme er en helhed, hvor delene kun kan forklares ud fra deres plads og funktion i helheden. Den såkaldte organicisme eller organismetanke går ud på, at ikke kun biologiske væsener, men også"
+                    "Romantikkens afgørende dyder er Intuition og Fantasi"
                     );
                 """
             )

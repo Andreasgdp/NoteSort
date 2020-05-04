@@ -1,0 +1,7 @@
+flask
+
+pysqlite3
+
+sklearn
+
+pandas

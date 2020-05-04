@@ -17,8 +17,6 @@ class TextClassifierModel:
     def __init__(self):
         self.model_file = fr"{ABS_FILEPATH}\data\classes\combined_test.txt"
         self.filepath_dict = {
-            "yelp": fr"{ABS_FILEPATH}\data\sentiment_analysis\yelp_labelled.txt",
-            # "combined": fr"{ABS_FILEPATH}\data\classes\combined.txt",
             "combined": self.model_file,
         }
         self.create_dataframe()
