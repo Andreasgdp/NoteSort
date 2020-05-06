@@ -26,7 +26,7 @@ class User:
 class Database:
     def __init__(self):
         self.DATABASE = fr"{ABS_FILEPATH}\main.db"
-
+        # self._drop_tables()
         # self._create_tables()
 
     def _get_db(self):
@@ -214,7 +214,7 @@ class Database:
         db = self._get_db()
         c = db.cursor()
         c.execute(
-            "UPDATE notes SET subject=?, body=? WHERE id = ? AND user_id=?",
+            "UPDATE notes SET subject=?, body=?, timestamp=CURRENT_TIMESTAMP WHERE id = ? AND user_id=?",
             (subject, body, note_id, user_id),
         )
         db.commit()
