@@ -76,6 +76,177 @@ a.custom-card, a.custom-card:hover {
   margin-bottom: 1rem;
 }
 
+.arrow-wrapper {
+  margin-left: calc(55vw - 300px - 5rem);
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.block {
+  width: 300px;
+  height: 2.5rem;
+  background: #eee;
+  margin: 0.5rem;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+h1 {
+  color: #001432;
+  opacity: 0.4;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+}
+
+.arrow-wrapper:hover h1 {
+  opacity: 1;
+}
+
+/***************
+ * Arrow 1
+ ***************/
+#arrow_1 .arrow {
+  cursor: pointer;
+  display: block;
+  width: 21.216407355px;
+  height: 42.43281471px;
+  position: relative;
+}
+#arrow_1 .arrow span, #arrow_1 .arrow:before, #arrow_1 .arrow:after {
+  background: #fff;
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  position: absolute;
+  top: calc(50% - (2px / 2));
+}
+#arrow_1 .arrow:before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+#arrow_1 .arrow:after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+#arrow_1 .arrow span {
+  width: 0;
+}
+#arrow_1 .arrow:hover span {
+  width: 42.42px;
+}
+#arrow_1 .arrow.arrow--left span, #arrow_1 .arrow.arrow--left:before, #arrow_1 .arrow.arrow--left:after {
+  left: 0;
+  -webkit-transform-origin: left 50%;
+          transform-origin: left 50%;
+}
+#arrow_1 .arrow.arrow--left:before, #arrow_1 .arrow.arrow--left:after {
+  -webkit-transition: left 0.3s 0.05s;
+  transition: left 0.3s 0.05s;
+}
+#arrow_1 .arrow.arrow--left span {
+  -webkit-transition: width 0.3s, left 0.3s 0.05s;
+  transition: width 0.3s, left 0.3s 0.05s;
+}
+#arrow_1 .arrow.arrow--left:hover span, #arrow_1 .arrow.arrow--left:hover:before, #arrow_1 .arrow.arrow--left:hover:after {
+  left: -21.216407355px;
+}
+#arrow_1 .arrow.arrow--right span, #arrow_1 .arrow.arrow--right:before, #arrow_1 .arrow.arrow--right:after {
+  right: 0;
+  -webkit-transform-origin: right 50%;
+          transform-origin: right 50%;
+}
+#arrow_1 .arrow.arrow--right:before, #arrow_1 .arrow.arrow--right:after {
+  -webkit-transition: right 0.3s 0.05s;
+  transition: right 0.3s 0.05s;
+}
+#arrow_1 .arrow.arrow--right span {
+  -webkit-transition: width 0.3s, right 0.3s 0.05s;
+  transition: width 0.3s, right 0.3s 0.05s;
+}
+#arrow_1 .arrow.arrow--right:hover span, #arrow_1 .arrow.arrow--right:hover:before, #arrow_1 .arrow.arrow--right:hover:after {
+  right: -21.216407355px;
+}
+
+/***************
+ * Arrow 2
+ ***************/
+#arrow_2 .arrow {
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  text-transform: uppercase;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+#arrow_2 .arrow span {
+  display: block;
+  width: 3em;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s 0s;
+  transition: opacity 0.3s 0s;
+  padding: 0 0.5em;
+}
+#arrow_2 .arrow:hover span {
+  opacity: 1;
+  -webkit-transition: opacity 0.3s 0.1s;
+  transition: opacity 0.3s 0.1s;
+}
+#arrow_2 .arrow:before {
+  content: "";
+  display: block;
+  border: solid #fff;
+  border-width: 2px 2px 0 0;
+  position: absolute;
+  top: 4px;
+  width: 10px;
+  height: 10px;
+}
+#arrow_2 .arrow.arrow--left:before {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  right: 0;
+  -webkit-transition: right 0.3s 0.2s;
+  transition: right 0.3s 0.2s;
+}
+#arrow_2 .arrow.arrow--left:hover:before {
+  right: 100%;
+  -webkit-transition: right 0.3s;
+  transition: right 0.3s;
+}
+#arrow_2 .arrow.arrow--right {
+  text-align: right;
+}
+#arrow_2 .arrow.arrow--right:before {
+  left: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  -webkit-transition: left 0.3s 0.2s;
+  transition: left 0.3s 0.2s;
+}
+#arrow_2 .arrow.arrow--right:hover:before {
+  left: 100%;
+  -webkit-transition: left 0.3s;
+  transition: left 0.3s;
+}
+#arrow_2 .arrow:hover {
+  -webkit-transform: none;
+          transform: none;
+}
+
 @media only screen and (max-width: 1150px) {
   .log-in-container {
     max-width: 60%;
