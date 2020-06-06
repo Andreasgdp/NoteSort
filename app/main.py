@@ -109,9 +109,13 @@ def profile():
     for i, class_info in enumerate(classes_info):
         i += 1
         class_info["num_notes"] = num_notes_in_class_dict[f"{i}"]
-
+    slidenumber = data.get_slidenumber(session["currentuser"])
     return my_render(
-        "user_main.html", title="Student", success=True, classes_info=classes_info,
+        "user_main.html",
+        title="Student",
+        success=True,
+        slidenumber=slidenumber,
+        classes_info=classes_info,
     )
 
 
@@ -141,7 +145,10 @@ def signup():
 @app.route("/edit_note")
 def edit_note():
     note_info = clean_dict_from_req_args(request.args)
-    return my_render("edit_note.html", note_info=note_info)
+    slidenumber = data.get_slidenumber(session["currentuser"])
+    return my_render(
+        "edit_note.html", note_info=note_info, success=True, slidenumber=slidenumber
+    )
 
 
 @app.route("/remove_note")
@@ -156,14 +163,20 @@ def showclass():
     class_id = clean_dict_from_req_args(request.args)
     class_info = data.get_class_info(class_id)
     notes = data.get_notes_in_class(session["currentuser"], class_id)
+    slidenumber = data.get_slidenumber(session["currentuser"])
     return my_render(
-        "class_page.html", success=True, class_info=class_info, notes=notes
+        "class_page.html",
+        success=True,
+        slidenumber=slidenumber,
+        class_info=class_info,
+        notes=notes,
     )
 
 
 @app.route("/take_notes")
 def take_notes():
-    return my_render("note_writer.html")
+    slidenumber = data.get_slidenumber(session["currentuser"])
+    return my_render("note_writer.html", success=True, slidenumber=slidenumber)
 
 
 @app.route("/get_class_prediction", methods=["GET"])
@@ -212,10 +225,28 @@ def read_note():
     note_id = clean_dict_from_req_args(request.args)
     note_info = data.get_note_info(note_id, session["currentuser"])
     class_info = data.get_class_info(note_info["class_id"])
+    slidenumber = data.get_slidenumber(session["currentuser"])
     return my_render(
-        "read_note.html", success=True, note_info=note_info, class_info=class_info
+        "read_note.html",
+        success=True,
+        note_info=note_info,
+        class_info=class_info,
+        slidenumber=slidenumber,
     )
 
+
+# !Presentation
+
+
+@app.route("/show_slides")
+def show_slides():
+    cluttered_dict = request.args
+    slidenumber = int(cluttered_dict[""])
+    data.update_slidenumber(slidenumber, session["currentuser"])
+    return my_render(f"slide{slidenumber}.html", success=True, slidenumber=slidenumber)
+
+
+# !Presentation stop
 
 if __name__ == "__main__":
     with app.app_context():

@@ -97,7 +97,7 @@ a.custom-card, a.custom-card:hover {
           justify-content: center;
 }
 
-h1 {
+a h1 {
   color: #001432;
   opacity: 0.4;
   text-align: center;
@@ -106,7 +106,7 @@ h1 {
   transition: opacity 0.3s;
 }
 
-.arrow-wrapper:hover h1 {
+.arrow-wrapper:hover a h1 {
   opacity: 1;
 }
 

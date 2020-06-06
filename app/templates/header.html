@@ -39,19 +39,26 @@
 				>
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<div id="arrow_1" class="arrow-wrapper">
-				<a class="arrow arrow--left">
-					<span></span>
-				</a>
-	
-				<div class="block"><h1>Arrow 1</h1></div>
-	
-				<a class="arrow arrow--right">
-					<span></span>
-				</a>
-			</div>
-
+			
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<div id="arrow_1" class="arrow-wrapper">
+					{% if slidenumber > 1 %}
+					<a class="arrow arrow--left" href="/show_slides?={{ slidenumber - 1 }}">
+						<span></span>
+					</a>
+					{% else %}
+					<a class="arrow arrow--left">
+						<span></span>
+					</a>
+					{% endif %}
+		
+					<a class="block" href="/show_slides?={{ slidenumber }}" style="text-decoration: none;"><h1>Slide {{ slidenumber }}</h1></a>
+					
+					<!-- TODO Add check for the number of slides so it is not possible to go too far -->
+					<a class="arrow arrow--right" href="/show_slides?={{ slidenumber + 1 }}">
+						<span></span>
+					</a>
+				</div>
 				<ul class="navbar-nav mr-auto">
 					<!-- <li class="nav-item active">
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
@@ -87,17 +94,6 @@
 			{% else %}
 			<a class="navbar-brand" href="/profile">NoteSort</a>
 			{% endif %}
-			<div id="arrow_1" class="arrow-wrapper">
-				<a class="arrow arrow--left">
-					<span></span>
-				</a>
-	
-				<div class="block"><h1>Arrow 1</h1></div>
-	
-				<a class="arrow arrow--right">
-					<span></span>
-				</a>
-			</div>
 		</nav>
 		{% endif %}
 		<title>NoteSort</title>

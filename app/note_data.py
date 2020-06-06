@@ -264,6 +264,24 @@ class Database:
         else:
             return None
 
+    def update_slidenumber(self, new_number, user_id):
+        db = self._get_db()
+        c = db.cursor()
+        c.execute("UPDATE userprofiles SET slidenumber=? WHERE id=?", (new_number, user_id))
+        db.commit()
+    
+    def get_slidenumber(self, user_id):
+        db = self._get_db()
+        c = db.cursor()
+        c.execute("SELECT slidenumber FROM userprofiles WHERE id = ?", (user_id,))
+        r = c.fetchone()
+        # If the user doesn't exist, the result will be None
+        if r is not None:
+            slidenumber = r[0]
+            return slidenumber
+        else:
+            return None
+
     def _drop_tables(self):
         db = self._get_db()
         c = db.cursor()
@@ -287,7 +305,8 @@ class Database:
                 username TEXT, 
                 email TEXT, 
                 password TEXT,
-                fullname VARCHAR(128) NOT NULL);"""
+                fullname VARCHAR(128) NOT NULL,
+                slidenumber INT NOT NULL DEFAULT 1);"""
             )
         except Exception as e:
             print(e)
