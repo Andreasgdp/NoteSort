@@ -13,6 +13,10 @@ class_model = TextClassifierModel()
 with app.app_context():
     data = Database()
 
+# !Presentation
+total_slides = 3
+# !Presentation
+
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -115,6 +119,7 @@ def profile():
         title="Student",
         success=True,
         slidenumber=slidenumber,
+        total_slides=total_slides,
         classes_info=classes_info,
     )
 
@@ -147,7 +152,11 @@ def edit_note():
     note_info = clean_dict_from_req_args(request.args)
     slidenumber = data.get_slidenumber(session["currentuser"])
     return my_render(
-        "edit_note.html", note_info=note_info, success=True, slidenumber=slidenumber
+        "edit_note.html",
+        note_info=note_info,
+        success=True,
+        total_slides=total_slides,
+        slidenumber=slidenumber,
     )
 
 
@@ -168,6 +177,7 @@ def showclass():
         "class_page.html",
         success=True,
         slidenumber=slidenumber,
+        total_slides=total_slides,
         class_info=class_info,
         notes=notes,
     )
@@ -176,7 +186,12 @@ def showclass():
 @app.route("/take_notes")
 def take_notes():
     slidenumber = data.get_slidenumber(session["currentuser"])
-    return my_render("note_writer.html", success=True, slidenumber=slidenumber)
+    return my_render(
+        "note_writer.html",
+        success=True,
+        total_slides=total_slides,
+        slidenumber=slidenumber,
+    )
 
 
 @app.route("/get_class_prediction", methods=["GET"])
@@ -231,6 +246,7 @@ def read_note():
         success=True,
         note_info=note_info,
         class_info=class_info,
+        total_slides=total_slides,
         slidenumber=slidenumber,
     )
 
@@ -243,7 +259,12 @@ def show_slides():
     cluttered_dict = request.args
     slidenumber = int(cluttered_dict[""])
     data.update_slidenumber(slidenumber, session["currentuser"])
-    return my_render(f"slide{slidenumber}.html", success=True, slidenumber=slidenumber)
+    return my_render(
+        f"slide{slidenumber}.html",
+        success=True,
+        total_slides=total_slides,
+        slidenumber=slidenumber,
+    )
 
 
 # !Presentation stop

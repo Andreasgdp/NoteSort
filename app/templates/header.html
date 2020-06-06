@@ -52,12 +52,17 @@
 					</a>
 					{% endif %}
 		
-					<a class="block" href="/show_slides?={{ slidenumber }}" style="text-decoration: none;"><h1>Slide {{ slidenumber }}</h1></a>
+					<a class="block" href="/show_slides?={{ slidenumber }}" style="text-decoration: none;"><h1>Slide {{ slidenumber }} of {{ total_slides }}</h1></a>
 					
-					<!-- TODO Add check for the number of slides so it is not possible to go too far -->
+					{% if slidenumber < total_slides %}
 					<a class="arrow arrow--right" href="/show_slides?={{ slidenumber + 1 }}">
 						<span></span>
 					</a>
+					{% else %}
+					<a class="arrow arrow--right">
+						<span></span>
+					</a>
+					{% endif %}
 				</div>
 				<ul class="navbar-nav mr-auto">
 					<!-- <li class="nav-item active">
