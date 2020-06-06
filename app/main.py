@@ -13,9 +13,9 @@ class_model = TextClassifierModel()
 with app.app_context():
     data = Database()
 
-# !Presentation
+# !Presentation---------------------------------------------------------------------------------------------------------------------
 total_slides = 3
-# !Presentation
+# !Presentation stop----------------------------------------------------------------------------------------------------------------
 
 
 @app.teardown_appcontext
@@ -251,7 +251,7 @@ def read_note():
     )
 
 
-# !Presentation
+# !Presentation---------------------------------------------------------------------------------------------------------------------
 
 
 @app.route("/show_slides")
@@ -267,7 +267,7 @@ def show_slides():
     )
 
 
-# !Presentation stop
+# !Presentation stop----------------------------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
     with app.app_context():
