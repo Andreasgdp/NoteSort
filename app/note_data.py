@@ -267,9 +267,11 @@ class Database:
     def update_slidenumber(self, new_number, user_id):
         db = self._get_db()
         c = db.cursor()
-        c.execute("UPDATE userprofiles SET slidenumber=? WHERE id=?", (new_number, user_id))
+        c.execute(
+            "UPDATE userprofiles SET slidenumber=? WHERE id=?", (new_number, user_id)
+        )
         db.commit()
-    
+
     def get_slidenumber(self, user_id):
         db = self._get_db()
         c = db.cursor()
