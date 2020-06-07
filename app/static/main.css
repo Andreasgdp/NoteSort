@@ -77,7 +77,8 @@ a.custom-card, a.custom-card:hover {
 }
 
 .arrow-wrapper {
-  margin-left: calc(55vw - 300px - 5rem);
+  /* margin-left: calc(50vw - 200px - (88px + 16px)); */
+  margin-left: calc(50vw - (274.4px/2) - 16px - 80px - 16px);
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
@@ -85,7 +86,7 @@ a.custom-card, a.custom-card:hover {
 }
 
 .block {
-  width: 300px;
+  width: 200px;
   height: 2rem;
   background: #eee;
   margin: 0.2rem;
