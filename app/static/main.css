@@ -86,11 +86,14 @@ a.custom-card, a.custom-card:hover {
 
 .block {
   width: 300px;
-  height: 2.5rem;
+  height: 2rem;
   background: #eee;
-  margin: 0.5rem;
+  margin: 0.2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
   display: -webkit-box;
   display: flex;
+  border-radius: 5px;
   -webkit-box-align: center;
           align-items: center;
   -webkit-box-pack: center;
@@ -98,7 +101,9 @@ a.custom-card, a.custom-card:hover {
 }
 
 a h1 {
+  padding-top: 5px;
   color: #001432;
+  font-size: x-large;
   opacity: 0.4;
   text-align: center;
   text-transform: uppercase;
@@ -117,7 +122,7 @@ a h1 {
   cursor: pointer;
   display: block;
   width: 21.216407355px;
-  height: 42.43281471px;
+  height: 2.1rem;
   position: relative;
 }
 #arrow_1 .arrow span, #arrow_1 .arrow:before, #arrow_1 .arrow:after {
