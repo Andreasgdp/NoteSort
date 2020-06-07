@@ -1,2 +1,11 @@
 {% extends "header.html" %} {% block content %}
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="{{ url_for('static', filename='slides.css') }}"
+/>
+<div class="title-area">
+	<h1 class="slide-heading" style="padding-top: 15%; font-size: 150px">NoteSort</h1>
+	<h2 class="slide-subheading">Programmering - Eksamen</h2>
+</div>
 {% endblock content %}

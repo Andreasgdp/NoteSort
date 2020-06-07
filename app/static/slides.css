@@ -1,0 +1,20 @@
+.title-area {
+	text-align: center;
+}
+
+.slide-heading {
+	padding-top: 1rem;
+}
+
+.presentation-area {
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.round-image {
+	width: 400px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 50%;
+}
