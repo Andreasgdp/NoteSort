@@ -4,13 +4,20 @@
 	type="text/css"
 	href="{{ url_for('static', filename='slides.css') }}"
 />
-<div class="title-area">
-	<h1 class="slide-heading">Velkommen</h1>
-	<h4 class="slide-subheading">Introduktion</h4>
-</div>
+<div class="slide">
+	<div class="title-area">
+		<h1 class="slide-heading">Velkommen</h1>
+		<h4 class="slide-subheading">Introduktion</h4>
+	</div>
 
-<div class="presentation-area">
-	<img class="round-image" src="./static/Images/dansk.png" alt="Image">
+	<div class="presentation-area">
+		<img class="round-image" src="./static/Images/dansk.png" alt="Image" />
+		<h4 class="short-text">
+			Her er en præsentation af min applikation, hvor man nemt kan skrive
+			og holde styr på sine noter
+		</h4>
+		<h3 class="nametag">Andreas Petersen – NoteSort</h3>
+	</div>
 </div>
 
 {% endblock content %}

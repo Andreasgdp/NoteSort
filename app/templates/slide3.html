@@ -1,2 +1,75 @@
 {% extends "header.html" %} {% block content %}
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="{{ url_for('static', filename='slides.css') }}"
+/>
+<div class="slide">
+	<div class="title-area" style="text-align: left; padding-left: 2rem;">
+		<h1 class="slide-heading">Overordnede mål for programmet</h1>
+		<h4 class="slide-subheading">Indledende beskrivelse af mål</h4>
+	</div>
+
+	<div class="presentation-area">
+		<div class="grid-parent">
+			<div class="left">
+				<img
+					class="confined-image"
+					src="./static/Images/pres_image_1.png"
+					alt="Image"
+				/>
+			</div>
+			<div
+				style="
+					padding-right: 2rem;
+					padding-left: 2rem;
+					padding-top: 8.5rem;
+					text-align: left;
+				"
+			>
+				<h2 class="blue-title">
+					Hvorfor skal programmet have mål?
+				</h2>
+				<p>
+					Det er vigtigt, når man gerne vil lave et program, at man
+					fremstiller nogle mål, så man er sikker på, at programmet i
+					sit endelige stadie har den ønskede form og funktion.
+				</p>
+			</div>
+		</div>
+		<div
+			class="grid-parent-3"
+			style="padding-left: 2rem; padding-right: 2rem; padding-top: 1rem;"
+		>
+			<div class="inline spacing" style="text-align: left;">
+				<h2 class="blue-title inline">01</h2>
+				<h2 class="inline">Skrive og gemme noter</h2>
+				<br />
+				<p>
+					Det skal være muligt at kunne skrive notater og gemme disse,
+					så de er tilgængeligt på alle enheder vha. hjemmesiden.
+				</p>
+			</div>
+			<div class="inline spacing" style="text-align: left;">
+				<h2 class="blue-title inline">02</h2>
+				<h2 class="inline">Automatisk sortering</h2>
+				<br />
+				<p>
+					For at gøre det smartere skal programmet selv sortere
+					noterne i de respektive mapper.
+				</p>
+			</div>
+			<div class="inline spacing" style="text-align: left;">
+				<h2 class="blue-title inline">03</h2>
+				<h2 class="inline">Nem adgang til hver note</h2>
+				<br />
+				<p>
+					Det skal gøres nemt at finde de notater, som man leder
+					efter, hvorfor noterne er kategoriseret. (Fremtidig funktion
+					til at søge i noterne)
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
 {% endblock content %}

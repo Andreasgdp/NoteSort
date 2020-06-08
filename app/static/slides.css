@@ -1,9 +1,19 @@
+.slide{
+	background-color: #2b2f33;
+	height: 100vh;
+	color: whitesmoke;
+}
+
+p {
+	font-size: large;
+}
+
 .title-area {
 	text-align: center;
 }
 
 .slide-heading {
-	padding-top: 1rem;
+	padding-top: 5rem;
 }
 
 .presentation-area {
@@ -11,10 +21,57 @@
 	text-align: center;
 }
 
+.left {
+	text-align: left;
+	padding-left: 2rem;
+}
+
 .round-image {
 	width: 400px;
 	height: 400px;
-	position: relative;
 	overflow: hidden;
 	border-radius: 50%;
+}
+
+.confined-image {
+	width: 800px;
+	height: 400px;
+	position: relative;
+	overflow: hidden;
+	border: 0.5rem solid #33393f;
+	border-top: none;
+}
+
+.short-text {
+	padding-top: 2rem;
+}
+
+.nametag {
+	padding-top: 3rem;
+}
+.grid-parent {
+	display: grid;
+	grid-template-columns: 1fr 1fr
+}
+
+.grid-parent-3 {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr
+}
+.blue-title{
+	color: #0f7bfd;
+	font-weight: bold;
+}
+
+.green-title{
+	color: green;
+}
+
+.inline {
+	display: inline; 
+}
+
+.spacing {
+	padding-left: 0.5rem;
+	padding-right: 0.5rem;
 }
