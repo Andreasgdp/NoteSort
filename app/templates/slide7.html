@@ -1,0 +1,34 @@
+{% extends "header.html" %} {% block content %}
+<link
+	rel="stylesheet"
+	type="text/css"
+	href="{{ url_for('static', filename='slides.css') }}"
+/>
+<div class="slide">
+	<div class="title-area">
+		<h1 class="slide-heading">Fremtidige forbedringer</h1>
+	</div>
+
+	<div class="presentation-area">
+		<a href="/">
+			<img
+				class="confined-image"
+				style="
+					border-top: 0.5rem solid #33393f;
+					width: 400px;
+					height: 400px;
+				"
+				src="./static/Images/whats next.jpg"
+				alt="Image"
+			/>
+		</a>
+		<h4 class="short-text">
+			Søgefunktion
+		</h4>
+		<h4 class="short-text">
+			Neurale netværk til sortering af noter
+		</h4>
+	</div>
+</div>
+
+{% endblock content %}
