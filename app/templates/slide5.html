@@ -10,17 +10,168 @@
 	</div>
 
 	<div class="presentation-area">
-		<a href="/">
-			<img
-				class="confined-image"
-				style="border-top: 0.5rem solid #33393f; width: 900px;"
-				src="./static/Images/pres_image_3.png"
-				alt="Image"
-			/>
-		</a>
+		<img
+			class="confined-image"
+			style="border-top: 0.5rem solid #33393f; width: 900px;"
+			src="./static/Images/pres_image_3.png"
+			alt="Image"
+		/>
+
 		<h4 class="short-text">
 			Test af iterationer – er brugerhistorien opfyldt?
 		</h4>
+		<div style="text-align: center;">
+			<button
+				id="spoiler_knap"
+				style="width: auto; margin: auto; margin-top: 2rem;"
+				class="btn btn-primary"
+				onclick="show_spoiler()"
+			>
+				Vis brugerhistorie
+			</button>
+		</div>
+
+		<script type="text/javascript">
+			function show_spoiler() {
+				var x = document.getElementById('brugerhistorie');
+				if (x.style.display === 'none') {
+					x.style.display = 'inline-block';
+				} else {
+					x.style.display = 'none';
+				}
+				var knap = document.getElementById('spoiler_knap');
+				if (x.style.display === 'inline-block') {
+					document.querySelector('#spoiler_knap').innerText =
+						'Skjul brugerhistorie';
+					newBot = document.getElementById('change-color2');
+					newBot.scrollIntoView({behavior: 'smooth' });
+				} else {
+					document.querySelector('#spoiler_knap').innerText =
+						'Vis brugerhistorie';
+				}
+			}
+		</script>
+
+		<div id="brugerhistorie" style="display: none; text-align: center;">
+			<div style="text-align: left; width: 50vw; padding-left: 7%;">
+				<ol style="font-size: x-large;">
+					<li class="line-space">
+						Når brugeren er logget ind, klikker brugeren på det fag,
+						som noten ligger i.
+					</li>
+					<li class="line-space">
+						Programmet navigerer til det fags side.
+					</li>
+					<li class="line-space">
+						Brugeren klikker på den note i listen, som skal
+						redigeres.
+					</li>
+					<li class="line-space">
+						Programmet navigerer til en side, hvor noten bliver
+						vist.
+					</li>
+					<li class="line-space">
+						Brugeren klikker på ”Edit”-knappen.
+					</li>
+					<li class="line-space" id="top-scroll">
+						Programmet navigerer til en redigeringsside, hvor notens
+						indhold står (opbygget på samme måde som for siden, hvor
+						man skriver en ny note).
+					</li>
+					<li class="line-space" id="change-color1">
+						Brugeren kan tilføje ændringer til noten og trykke
+						”Submit”-knappen for at gemme ændringerne til noten.
+					</li>
+					<li class="line-space" id="change-color2">
+						Programmet går ind i databasen og tilføjer ændringerne
+						og navigerer tilbage til faget, hvor den nye note også
+						bliver vist.
+					</li>
+				</ol>
+			</div>
+			<div style="text-align: center;">
+				<button
+					id="spoiler_knap_test"
+					style="
+						width: auto;
+						margin: auto;
+						margin-top: 2rem;
+						margin-bottom: 2rem;
+					"
+					class="btn btn-primary"
+					onclick="show_spoiler2()"
+				>
+					Vis test
+				</button>
+			</div>
+
+			<script type="text/javascript">
+				function show_spoiler2() {
+					var x = document.getElementById('test');
+					if (x.style.display === 'none') {
+						x.style.display = 'block';
+					} else {
+						x.style.display = 'none';
+					}
+					var knap = document.getElementById('spoiler_knap_test');
+					if (x.style.display === 'block') {
+						document.querySelector('#spoiler_knap_test').innerText =
+							'Skjul test';
+
+						document.querySelector(
+							'#change-color1'
+						).style.backgroundColor = 'red';
+						document.querySelector(
+							'#change-color2'
+						).style.backgroundColor = 'red';
+						newTop = document.getElementById('top-scroll');
+						newTop.scrollIntoView({behavior: 'smooth' });
+					} else {
+						document.querySelector('#spoiler_knap_test').innerText =
+							'Vis test';
+
+						document.querySelector(
+							'#change-color1'
+						).style.backgroundColor = 'transparent';
+						document.querySelector(
+							'#change-color2'
+						).style.backgroundColor = 'transparent';
+					}
+				}
+			</script>
+			<div
+				id="test"
+				style="display: none; text-align: center; width: 50vw;"
+			>
+				<img
+					class="confined-image-stack"
+					style="border-top: 0.5rem solid #33393f;"
+					src="./static/Images/pres_image_5.png"
+					alt="Image"
+				/>
+				<br />
+				<img
+					class="confined-image-stack"
+					style="border-top: 0.5rem solid #33393f;"
+					src="./static/Images/pres_image_6.png"
+					alt="Image"
+				/>
+				<br />
+				<img
+					class="confined-image-stack"
+					style="border-top: 0.5rem solid #33393f;"
+					src="./static/Images/pres_image_7.png"
+					alt="Image"
+				/>
+				<br />
+				<img
+					class="confined-image-stack"
+					style="border-top: 0.5rem solid #33393f;"
+					src="./static/Images/pres_image_8.png"
+					alt="Image"
+				/>
+			</div>
+		</div>
 	</div>
 </div>
 

@@ -19,6 +19,7 @@ p {
 .presentation-area {
 	margin-top: 2rem;
 	text-align: center;
+	background-color: #2b2f33;
 }
 
 .left {
@@ -36,6 +37,16 @@ p {
 .confined-image {
 	width: 800px;
 	height: 400px;
+	position: relative;
+	overflow: hidden;
+	border: 0.5rem solid #33393f;
+	border-top: none;
+}
+
+.confined-image-stack {
+	width: 100%;
+	height: auto;
+	margin: 1rem;
 	position: relative;
 	overflow: hidden;
 	border: 0.5rem solid #33393f;
@@ -74,4 +85,13 @@ p {
 .spacing {
 	padding-left: 0.5rem;
 	padding-right: 0.5rem;
+}
+
+.dot-list {
+	margin-top: 1rem;
+	font-size: x-large;
+}
+
+.line-space {
+	margin-top: 1em;
 }
