@@ -267,6 +267,24 @@ def show_slides():
     )
 
 
+@app.route("/change_slide", methods=["POST"])
+def change_slide():
+    saerch_querry = request.form["search"]
+    numbers = [int(s) for s in saerch_querry.split() if s.isdigit()]
+    slides_total = [i for i in range(1, total_slides + 1)]
+    for number in numbers:
+        if number in slides_total:
+            slidenumber = number
+            data.update_slidenumber(slidenumber, session["currentuser"])
+            return my_render(
+                f"slide{slidenumber}.html",
+                success=True,
+                total_slides=total_slides,
+                slidenumber=slidenumber,
+            )
+    return redirect("/profile")
+
+
 # !Presentation stop----------------------------------------------------------------------------------------------------------------
 
 if __name__ == "__main__":
