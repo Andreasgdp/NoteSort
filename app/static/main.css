@@ -8,7 +8,8 @@
 } */
 
 html, body {
-  height: 100%;
+  height: calc(100%);
+  overflow: auto;
   margin: 0;
   padding: 0;
   border: 0;
@@ -16,6 +17,32 @@ html, body {
 
 nav {
   padding-right: 0.5rem !important;
+  overflow: hidden;
+}
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: calc(100% 56px);
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #5b6671;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #475058;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: #24282d;
 }
 
 .center {
@@ -82,7 +109,7 @@ a.custom-card, a.custom-card:hover {
   display: -webkit-box;
   display: flex;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .block {
@@ -96,9 +123,9 @@ a.custom-card, a.custom-card:hover {
   display: flex;
   border-radius: 5px;
   -webkit-box-align: center;
-          align-items: center;
+  align-items: center;
   -webkit-box-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 a h1 {
@@ -119,6 +146,7 @@ a h1 {
 /***************
  * Arrow 1
  ***************/
+
 #arrow_1 .arrow {
   cursor: pointer;
   display: block;
@@ -126,6 +154,7 @@ a h1 {
   height: 2.1rem;
   position: relative;
 }
+
 #arrow_1 .arrow span, #arrow_1 .arrow:before, #arrow_1 .arrow:after {
   background: #fff;
   content: "";
@@ -135,49 +164,61 @@ a h1 {
   position: absolute;
   top: calc(50% - (2px / 2));
 }
+
 #arrow_1 .arrow:before {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
+
 #arrow_1 .arrow:after {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
+
 #arrow_1 .arrow span {
   width: 0;
 }
+
 #arrow_1 .arrow:hover span {
   width: 42.42px;
 }
+
 #arrow_1 .arrow.arrow--left span, #arrow_1 .arrow.arrow--left:before, #arrow_1 .arrow.arrow--left:after {
   left: 0;
   -webkit-transform-origin: left 50%;
-          transform-origin: left 50%;
+  transform-origin: left 50%;
 }
+
 #arrow_1 .arrow.arrow--left:before, #arrow_1 .arrow.arrow--left:after {
   -webkit-transition: left 0.3s 0.05s;
   transition: left 0.3s 0.05s;
 }
+
 #arrow_1 .arrow.arrow--left span {
   -webkit-transition: width 0.3s, left 0.3s 0.05s;
   transition: width 0.3s, left 0.3s 0.05s;
 }
+
 #arrow_1 .arrow.arrow--left:hover span, #arrow_1 .arrow.arrow--left:hover:before, #arrow_1 .arrow.arrow--left:hover:after {
   left: -21.216407355px;
 }
+
 #arrow_1 .arrow.arrow--right span, #arrow_1 .arrow.arrow--right:before, #arrow_1 .arrow.arrow--right:after {
   right: 0;
   -webkit-transform-origin: right 50%;
-          transform-origin: right 50%;
+  transform-origin: right 50%;
 }
+
 #arrow_1 .arrow.arrow--right:before, #arrow_1 .arrow.arrow--right:after {
   -webkit-transition: right 0.3s 0.05s;
   transition: right 0.3s 0.05s;
 }
+
 #arrow_1 .arrow.arrow--right span {
   -webkit-transition: width 0.3s, right 0.3s 0.05s;
   transition: width 0.3s, right 0.3s 0.05s;
 }
+
 #arrow_1 .arrow.arrow--right:hover span, #arrow_1 .arrow.arrow--right:hover:before, #arrow_1 .arrow.arrow--right:hover:after {
   right: -21.216407355px;
 }
@@ -185,12 +226,13 @@ a h1 {
 /***************
  * Arrow 2
  ***************/
+
 #arrow_2 .arrow {
   color: #fff;
   cursor: pointer;
   display: block;
   -webkit-box-align: start;
-          align-items: flex-start;
+  align-items: flex-start;
   text-transform: uppercase;
   position: relative;
   -webkit-transition: -webkit-transform 0.3s;
@@ -198,6 +240,7 @@ a h1 {
   transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
+
 #arrow_2 .arrow span {
   display: block;
   width: 3em;
@@ -206,11 +249,13 @@ a h1 {
   transition: opacity 0.3s 0s;
   padding: 0 0.5em;
 }
+
 #arrow_2 .arrow:hover span {
   opacity: 1;
   -webkit-transition: opacity 0.3s 0.1s;
   transition: opacity 0.3s 0.1s;
 }
+
 #arrow_2 .arrow:before {
   content: "";
   display: block;
@@ -221,36 +266,42 @@ a h1 {
   width: 10px;
   height: 10px;
 }
+
 #arrow_2 .arrow.arrow--left:before {
   -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
+  transform: rotate(-135deg);
   right: 0;
   -webkit-transition: right 0.3s 0.2s;
   transition: right 0.3s 0.2s;
 }
+
 #arrow_2 .arrow.arrow--left:hover:before {
   right: 100%;
   -webkit-transition: right 0.3s;
   transition: right 0.3s;
 }
+
 #arrow_2 .arrow.arrow--right {
   text-align: right;
 }
+
 #arrow_2 .arrow.arrow--right:before {
   left: 0;
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   -webkit-transition: left 0.3s 0.2s;
   transition: left 0.3s 0.2s;
 }
+
 #arrow_2 .arrow.arrow--right:hover:before {
   left: 100%;
   -webkit-transition: left 0.3s;
   transition: left 0.3s;
 }
+
 #arrow_2 .arrow:hover {
   -webkit-transform: none;
-          transform: none;
+  transform: none;
 }
 
 @media only screen and (max-width: 1150px) {
