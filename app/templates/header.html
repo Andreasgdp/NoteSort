@@ -22,7 +22,10 @@
 		/>
 		{% if title != "login" and title != "signup" and title !=
 		"login_profile" and success==true %}
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; top: 0px; width: 100%; z-index: 100;">
+		<nav
+			class="navbar navbar-expand-lg navbar-dark bg-dark"
+			style="position: fixed; top: 0px; width: 100%; z-index: 100;"
+		>
 			{% if title == "login" or title == "signup" %}
 			<a class="navbar-brand" href="/">NoteSort</a>
 			{% elif success %}
@@ -78,7 +81,11 @@
 					{% endif %}
 				</div>
 				<ul class="navbar-nav mr-auto"></ul>
-				<form class="form-inline my-2 my-lg-0 mr-sm-2" action="change_slide" method="POST">
+				<form
+					class="form-inline my-2 my-lg-0 mr-sm-2"
+					action="search"
+					method="POST"
+				>
 					<input
 						class="form-control mr-sm-2"
 						type="search"

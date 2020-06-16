@@ -193,6 +193,29 @@ class Database:
         }
         return note_dict
 
+    def search_notes(self, query, user_id):
+        notes = []
+        db = self._get_db()
+        c = db.cursor()
+        query = f"%{query}%"
+        c.execute(
+            "SELECT * FROM notes WHERE user_id == ? AND (body LIKE ? OR subject LIKE ?)",
+            (user_id, query, query),
+        )
+        r = c.fetchall()
+        for note in r:
+            note_id, user_id, class_id, subject, body, timestamp = note
+            note_dict = {
+                "note_id": note_id,
+                "user_id": user_id,
+                "class_id": class_id,
+                "subject": subject,
+                "body": body,
+                "timestamp": timestamp,
+            }
+            notes.append(note_dict)
+        return notes
+
     def remove_note(self, note_id, user_id):
         db = self._get_db()
         c = db.cursor()
@@ -263,6 +286,7 @@ class Database:
             return fullname
         else:
             return None
+
     # !Presentation---------------------------------------------------------------------------------------------------------------------
     def update_slidenumber(self, new_number, user_id):
         db = self._get_db()
@@ -283,6 +307,7 @@ class Database:
             return slidenumber
         else:
             return None
+
     # !Presentation stop----------------------------------------------------------------------------------------------------------------
     def _drop_tables(self):
         db = self._get_db()

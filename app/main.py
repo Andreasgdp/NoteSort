@@ -252,6 +252,39 @@ def read_note():
 
 
 # !Presentation---------------------------------------------------------------------------------------------------------------------
+@app.route("/search", methods=["POST"])
+def search():
+    result = False
+    # Get query
+    query = request.form["search"]
+    # Get matching notes w. classes.
+    notes = data.search_notes(query, session["currentuser"])
+    # Seperate notes in classes
+    classes = [[], [], []]
+    for note in notes:
+        if note["class_id"] == 1:
+            classes[0].append(note)
+        if note["class_id"] == 2:
+            classes[1].append(note)
+        if note["class_id"] == 3:
+            classes[2].append(note)
+    classes_final = classes[:]
+    for i in reversed(range(0, len(classes))):
+        if not classes[i]:
+            classes_final.pop(i)
+
+    if classes_final:
+        result = True
+
+    slidenumber = data.get_slidenumber(session["currentuser"])
+    return my_render(
+        "search.html",
+        success=True,
+        total_slides=total_slides,
+        slidenumber=slidenumber,
+        classes=classes_final,
+        result=result,
+    )
 
 
 @app.route("/show_slides")
