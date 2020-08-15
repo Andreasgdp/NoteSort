@@ -168,3 +168,5 @@ Man skal dog ikke føle sig snydt hvis man bedst kan lide de hvide, da de midter
 Jeg skal vise at punktet A(2.1; -1.7; 0) ligger i planen.	3
 Jeg vil starte med at finde den afstand som punktet A har til planen Til det bruger jeg distanceformlen mellem et punkt og en plan.	3
 Hvis afstanden var 0, så ville punktet ligge på planen.	3
+Tester systemet	2
+dsfjksdfjklsdjkgldsjglds	1
