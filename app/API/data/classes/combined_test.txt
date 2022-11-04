@@ -170,3 +170,4 @@ Jeg vil starte med at finde den afstand som punktet A har til planen Til det bru
 Hvis afstanden var 0, så ville punktet ligge på planen.	3
 Tester systemet	2
 dsfjksdfjklsdjkgldsjglds	1
+Bygningen er konstrueret af beton.	1
